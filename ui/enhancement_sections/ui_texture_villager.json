@@ -1,0 +1,114 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "trade_enhanced",
+  
+  // Trade screen
+  "dialog_background_trade@container_enhanced.dialog_background_base": {
+    "type": "image",
+    "texture": "textures/gui/container/villager"
+  },
+
+  //---------------------------------------------------------------------------
+  // For trade screen
+  //---------------------------------------------------------------------------
+
+  "trade_cross_out_icon_pc": {
+    "type": "image",
+    "texture": "textures/gui/container/villager",
+    "layer": 1,
+    "size": [ 28, 21 ],
+    "uv": [ 424, 0 ], //Modified for 512x GUI!
+    "uv_size": [ 56, 42 ], //Modified for 512x GUI!
+    "bindings": [
+      {
+        "binding_name": "#cross_out_icon",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  
+  "trade_item_slotB_cell_image": {
+    "type": "image",
+    "texture": "textures/gui/container/villager",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ 18, 18 ],
+    "offset": [ 61, 52 ],
+    "uv": [ 0, 332 ], //Modified for 512x GUI!
+    "uv_size": [ 36, 36 ], //Modified for 512x GUI!
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_name": "#show_second_trade_slot",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+  
+  "cycle_recipe_left_button_pc@common_enhanced.cycle_recipe_button_pc": { //Modified
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$cycle_binding_name": "#left_button_enabled",
+    "$pressed_button_name": "button.cycle_recipe_left",
+    "controls": [
+      {
+        "default@common_enhanced.trade_button_image_pc": {
+          "uv": [ 352, 38 ], //Modified for 512x GUI!
+          "uv_size": [ 24, 38 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "hover@common_enhanced.trade_button_image_pc": {
+          "uv": [ 376, 38 ], //Modified for 512x GUI!
+          "uv_size": [ 24, 38 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "pressed@common_enhanced.trade_button_image_pc": {
+          "uv": [ 376, 38 ], //Modified for 512x GUI!
+          "uv_size": [ 24, 38 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "locked@common_enhanced.trade_button_image_pc": {
+          "uv": [ 400, 38 ], //Modified for 512x GUI!
+          "uv_size": [ 24, 38 ] //Modified for 512x GUI!
+        }
+      }
+    ]
+  },
+
+  "cycle_recipe_right_button_pc@common_enhanced.cycle_recipe_button_pc": { //Modified
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "$cycle_binding_name": "#right_button_enabled",
+    "$pressed_button_name": "button.cycle_recipe_right",
+    "controls": [
+      {
+        "default@common_enhanced.trade_button_image_pc": {
+          "uv": [ 352, 0 ], //Modified for 512x GUI!
+          "uv_size": [ 24, 38 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "hover@common_enhanced.trade_button_image_pc": {
+          "uv": [ 376, 0 ], //Modified for 512x GUI!
+          "uv_size": [ 24, 38 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "pressed@common_enhanced.trade_button_image_pc": {
+          "uv": [ 376, 0 ], //Modified for 512x GUI!
+          "uv_size": [ 24, 38 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "locked@common_enhanced.trade_button_image_pc": {
+          "uv": [ 400, 0 ], //Modified for 512x GUI!
+          "uv_size": [ 24, 38 ] //Modified for 512x GUI!
+        }
+      }
+    ]
+  }
+}

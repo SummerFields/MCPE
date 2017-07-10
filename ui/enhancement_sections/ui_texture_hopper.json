@@ -1,0 +1,10 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "hopper_enhanced",
+
+  // Hopper screen
+  "dialog_background_hopper@container_enhanced.dialog_background_base": {
+    "texture": "textures/gui/container/hopper",
+    "uv_size": [ 352, 266 ] //Modified for 512x GUI!
+  }
+}

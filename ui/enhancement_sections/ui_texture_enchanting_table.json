@@ -1,0 +1,88 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "enchanting_enhanced",
+  
+  // Enchanting screen
+  "dialog_background_enchanting@container_enhanced.dialog_background_base": {
+    "texture": "textures/gui/container/enchanting_table"
+  },
+
+  //Lapis image!
+  "lapis_image_pc@common_enhanced.enchanting_image_pc": {
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "layer": 4,
+    "offset": [ 1, 1 ],
+    "size": [ 16, 16 ],
+    "uv": [ 352, 0 ], //Modified for 512x GUI!
+    "uv_size": [ 32, 32 ] //Modified for 512x GUI!
+  },
+
+  //#region For dust image!
+  "dust_image_pc@common_enhanced.enchanting_image_pc": {
+    "anchor_to": "left_middle",
+    "anchor_from": "left_middle",
+    "offset": [ 3, 0 ],
+    "size": [ 13, 11 ],
+    "uv_size": [ 26, 22 ], //Modified for 512x GUI!
+    "bindings": [
+      {
+        "binding_name": "$visibility_binding_name",
+        "binding_name_override": "#visible",
+        "binding_collection_name": "#enchant_buttons",
+        "binding_type": "collection"
+      }
+    ]
+  },
+  
+  "dust_panel_pc": {
+    "type": "grid",
+    "grid_dimensions": [ 1, 3 ],
+    "layer": 5,
+    "collection_name": "#enchant_buttons",
+    "controls": [
+      {
+        "a@common_enhanced.dust_template_pc": {
+          "grid_position": [ 0, 0 ],
+          "$uvs": [ 6, 450 ], //Modified for 512x GUI!
+          "$uvus": [ 6, 482 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "b@common_enhanced.dust_template_pc": {
+          "grid_position": [ 0, 1 ],
+          "$uvs": [ 38, 450 ], //Modified for 512x GUI!
+          "$uvus": [ 38, 482 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "c@common_enhanced.dust_template_pc": {
+          "grid_position": [ 0, 2 ],
+          "$uvs": [ 68, 450 ], //Modified for 512x GUI!
+          "$uvus": [ 68, 482 ] //Modified for 512x GUI!
+        }
+      }
+    ]
+  },
+  //#endregion
+  
+  "dark_background_pc@common_enhanced.enchanting_image_pc": {
+    "uv": [ 0, 370 ], //Modified for 512x GUI!
+    "uv_size": [ 216, 38 ] //Modified for 512x GUI!
+  },
+
+  "dark_background_with_hover_text_pc@common_enhanced.background_with_hover_text_pc": {
+    "uv": [ 0, 370 ], //Modified for 512x GUI!
+    "uv_size": [ 216, 38 ] //Modified for 512x GUI!
+  },
+
+  "active_background_pc@common_enhanced.enchanting_image_pc": {
+    "uv": [ 0, 332 ], //Modified for 512x GUI!
+    "uv_size": [ 216, 38 ] //Modified for 512x GUI!
+  },
+
+  "active_background_with_hover_text_pc@common_enhanced.background_with_hover_text_pc": {
+    "uv": [ 0, 408 ], //Modified for 512x GUI!
+    "uv_size": [ 216, 38 ] //Modified for 512x GUI!
+  }
+}

@@ -1,0 +1,38 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "chest_enhanced",
+
+  // Small Chest screen
+  "dialog_background_small_chest": {
+    "type": "panel",
+    "offset": [ 0, 0 ],
+    "size": [ 176, 167 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "top_half@chest_enhanced.dialog_background_large_chest": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ 176, 71 ],
+          "uv_size": [ 352, 142 ] //Modified for 512x GUI!
+        }
+      },
+      {
+        "bottom_half@chest_enhanced.dialog_background_large_chest": {
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "size": [ 176, 96 ],
+          "uv": [ 0, 252 ], //Modified for 512x GUI!
+          "uv_size": [ 352, 192 ] //Modified for 512x GUI!
+        }
+      }
+    ]
+  },
+
+  // Large Chest screen
+  "dialog_background_large_chest@container_enhanced.dialog_background_base": {
+    "texture": "textures/gui/container/generic_54",
+    "uv_size": [ 352, 444 ] //Modified for 512x GUI!
+  }
+}

@@ -1,0 +1,687 @@
+//File modified by @CrizArtEX. Don´t steal the code design ;)
+/********************************************************
+*   (c) Mojang. All rights reserved                     *
+*   (c) Microsoft. All rights reserved.                 *
+*********************************************************/
+
+// The screen used to purchase (or trial use) a realm; pops up and gives
+// the player a chance to ... name and decide purchase options.  Next
+// screen is screen for Invite Players To Your Realm.
+
+{
+  "namespace": "realms_create",
+
+  "title_label": {
+    "type": "label",
+    "size": [ "default", "default" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "color": [ 0.3, 0.3, 0.3 ]
+  },
+
+  "label": {
+    "type": "label",
+    "size": [ "default", "default" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  "button_image": {
+    "$button_text|default": "",
+    "$button_text_offset|default": [ 0, 0 ],
+    "$text_color|default": [ 0.3, 0.3, 0.3 ],
+    "type": "image",
+    "nineslice_size": 6, //Modified
+    "uv": [ 0, 0 ],
+    "uv_size": [ 16, 16 ], //Modified
+    "controls": [
+      {
+        "button_label": {
+          "type": "label",
+          "layer": 1,
+          "size": [ "default", "default" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$text_color",
+          "offset": "$button_text_offset",
+          "text": "$button_text"
+        }
+      }
+    ]
+  },
+
+  "button_image_with_bound_label@button_image": {
+    "$button_text_offset|default": [ 0, 0 ],
+    "$text_color|default": [ 0.3, 0.3, 0.3 ],
+    "type": "image",
+    "nineslice_size": 6, //Modified
+    "uv": [ 0, 0 ],
+    "uv_size": [ 16, 16 ], //Modified
+    "controls": [
+      {
+        "button_label": {
+          "type": "label",
+          "layer": 1,
+          "size": [ "default", "default" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$text_color",
+          "offset": "$button_text_offset",
+          "text": "$button_text_bind",
+          "bindings": [
+            {
+              "binding_name": "$button_text_bind"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  // These layers are offset by 2 in order to allow two buttons who share a border to not z-fight with the different states
+  "default@realms_create.button_image": {
+    "texture": "textures/gui/newgui/ButtonWithBorder",
+    "layer": 1
+  },
+
+  "pressed@realms_create.button_image": {
+    "texture": "textures/gui/newgui/ButtonWithBorderPressedNoHover",
+    "layer": 3
+  },
+
+  "hover@realms_create.button_image": {
+    "texture": "textures/gui/newgui/ButtonWithBorderHover",
+    "$text_color": [ 1.00, 1.00, 1.00 ],
+    "layer": 5
+  },
+
+  "hover_pressed@realms_create.button_image": {
+    "texture": "textures/gui/newgui/ButtonWithBorderPressed",
+    "$text_color": [ 1.00, 1.00, 1.00 ],
+    "layer": 7
+  },
+
+  "bound_default@realms_create.button_image_with_bound_label": {
+    "texture": "textures/gui/newgui/ButtonWithBorder"
+  },
+
+  "bound_hover@realms_create.button_image_with_bound_label": {
+    "texture": "textures/gui/newgui/ButtonWithBorderHover",
+    "$text_color": [ 1.00, 1.00, 1.00 ]
+  },
+
+  "bound_hover_pressed@realms_create.button_image_with_bound_label": {
+    "texture": "textures/gui/newgui/ButtonWithBorderPressed",
+    "$text_color": [ 1.00, 1.00, 1.00 ]
+  },
+
+  "radio_with_label_core@common.radio_toggle": {
+    "$unchecked_control": "realms_create.default",
+    "$checked_control": "realms_create.pressed",
+    "$unchecked_hover_control": "realms_create.hover",
+    "$checked_hover_control": "realms_create.hover_pressed",
+    "$radio_toggle_group": true,
+    "size": [ "100%", "100%" ],
+    "$toggle_name": "$toggle_state_binding_name"
+  },
+
+  "radio_with_label": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "50px" ],
+    "offset": [ 3, 0 ],
+    "controls": [
+      {
+        "radio_with_label_core@radio_with_label_core": {
+          "layer": 1,
+          "focus_change_down": "$focus_override_down",
+          "focus_identifier": "$focus_id"
+        }
+      },
+      {
+        "radio_label": {
+          "type": "label",
+          "layer": 10,
+          "size": [ "default", "default" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": [ 0.3, 0.3, 0.3 ],
+          "text": "$radio_label_text"
+        }
+      }
+    ]
+  },
+
+  //--------------------------------------------------------------------------------
+  // Popup Modal Dialogs
+  //--------------------------------------------------------------------------------
+
+  "popup_dialog_base@popup_dialog.popup_dialog": {
+    "$middle_button_press": "button.close_dialog"
+  },
+
+  "popup_dialog__agree_to_tos@realms_create.popup_dialog_base": {
+    "$message_text": "#tos_error_msg",
+    "$middle_button_text": "realmsCreateScreen.goBack",
+    "controls": [
+      { "popup_dialog_bg@popup_dialog.popup_dialog_bg": { } },
+      {
+        "popup_dialog_message@popup_dialog.popup_dialog_message": {
+          "offset": [ 0, 30 ], // non-default value because the case of invalid realm name and not accepting TOS results in string pushing out the top of the dialog box
+          "bindings": [
+            {
+              "binding_name": "$message_text"
+            }
+          ]
+        }
+      },
+      { "popup_dialog_middle_button@popup_dialog.popup_dialog_middle_button": { } }
+    ]
+  },
+
+  "popup_dialog__purchase_failed@realms_create.popup_dialog_base": {
+    "$message_text": "realmsCreateScreen.purchaseFailed",
+    "$middle_button_text": "gui.ok",
+    "controls": [
+      { "popup_dialog_bg@popup_dialog.popup_dialog_bg": { } },
+      {
+        "popup_dialog_message@popup_dialog.popup_dialog_message": {
+          "offset": [ 0, 30 ]
+        }
+      },
+      { "popup_dialog_middle_button@popup_dialog.popup_dialog_middle_button": { } }
+    ]
+  },
+
+  "popup_dialog__purchase_in_progress@popup_dialog.popup_dialog": {
+    "$message_text": "realmsCreateScreen.waitingPurchase",
+    "controls": [
+      { "popup_dialog_bg@popup_dialog.popup_dialog_bg": { } },
+      {
+        "popup_dialog_message@popup_dialog.popup_dialog_message": {
+          "size": [ "90%", "100%" ]
+        }
+      }
+    ]
+  },
+
+  //--------------------------------------------------------------------------------
+  // Controls
+  //--------------------------------------------------------------------------------
+
+  "enter_name_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "name_label_0@label": {
+          "layer": 1,
+          "offset": [ 2, 2 ],
+          "text": "realmsCreateScreen.nameHeader.name"
+        }
+      },
+      {
+        "name_edit@common.text_edit_box": {
+          "ignored": "$hide_name_as_edit",
+          "layer": 2,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ 0, 12 ],
+          "size": [ "100%", 25 ],
+          "$text_box_name": "#realms_name_box",
+          "$text_edit_box_content_binding_name": "#realms_name_textbox",
+          "max_length": 30
+        }
+      },
+      {
+        "name_label_1": {
+          "ignored": "$hide_name_as_label",
+          "type": "panel",
+          "layer": 2,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ 0, 12 ],
+          "size": [ "100%", 25 ],
+          "controls": [
+            {
+              "display_text@label": {
+                "layer": 3,
+                "offset": [ 5, 7 ],
+                "size": [ "100% - 6px", "100%" ],
+                "text": "$realm_name_label_text"
+              }
+            },
+            { "border@common.edit_box_indent": { } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "selected_duration_checkbox": {
+    "type": "image",
+    "layer": 1,
+    "size": [ 16, 13 ],
+    "offset": [ 4, -1 ],
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "uv": [ 0, 0 ],
+    "uv_size": [ 16, 13 ]
+  },
+
+  "selected_duration_checkbox_empty@selected_duration_checkbox": {
+    "texture": "textures/gui/newgui/buttons/checkbox/checkboxUnFilled"
+  },
+
+  "selected_duration_checkbox_filled@selected_duration_checkbox": {
+    "texture": "textures/gui/newgui/buttons/checkbox/checkboxFilledYellow",
+    "bindings": [
+      {
+        "binding_name": "$selected_duration_binding_name",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "duration_button@common.button": {
+    "controls": [
+      {
+        "default@realms_create.default": {
+          "layer": 1
+        }
+      },
+      {
+        "hover@realms_create.hover": {
+          "layer": 4
+
+        }
+      },
+      {
+        "pressed@realms_create.hover_pressed": {
+          "$button_text_offset": [ 1, 1 ],
+          "layer": 7
+        }
+      },
+      {
+        "selected_duration_checkbox_empty@selected_duration_checkbox_empty": {
+          // button content will go up to layer 3
+          "layer": 8
+        }
+      },
+      {
+        "selected_duration_checkbox_filled@selected_duration_checkbox_filled": {
+          // button content will go up to layer 3
+          // filled has to render above empty, so +1 layer
+          "layer": 9
+        }
+      }
+    ]
+  },
+
+  "choose_duration_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "name_label@label": {
+          "offset": [ 2, 0 ],
+          "text": "realmsCreateScreen.durationHeader",
+          "layer": 2
+        }
+      },
+      {
+        "choose_duration_stack_panel": {
+          "type": "input_panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ "100%", "100% - 10px" ],
+          "offset": [ 0, 10 ],
+          "controls": [
+            {
+              "short@realms_create.duration_button": {
+                "$pressed_button_name": "button.realms_duration_short",
+                "$toggle_state_binding_name": "#player_count_2",
+                "$button_text": "realmsCreateScreen.durationShort",
+                "$selected_duration_binding_name": "#selected_duration_short",
+                "size": [ "100%", "50%" ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 1
+              }
+            },
+            {
+              "long@realms_create.duration_button": {
+                "$pressed_button_name": "button.realms_duration_long",
+                "$toggle_state_binding_name": "#player_count_10",
+                "$button_text": "realmsCreateScreen.durationLong",
+                "$selected_duration_binding_name": "#selected_duration_long",
+                "size": [ "100%", "50% + 1px" ],
+                "anchor_from": "bottom_left",
+                "anchor_to": "bottom_left",
+                "layer": 2
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "choose_tier_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "name_label@label": {
+          "offset": [ 2, 2 ],
+          "text": "realmsCreateScreen.sizeHeader",
+          "layer": 2
+        }
+      },
+      {
+        "choose_tier_stack_panel": {
+          "type": "input_panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ "100%", "100% - 14px" ],
+          "offset": [ 0, 12 ],
+          "controls": [
+            {
+              "light_text_toggle_0@common_toggles.light_text_toggle": {
+                "size": [ "50%", "100%" ],
+                "layer": 1,
+                "$toggle_binding_type": "global",
+                "$toggle_state_binding_name": "#player_count_2",
+                "$toggle_name": "#player_count_2",
+                "$button_text_binding_type": "none",
+                "$button_text": "realmsCreateScreen.usersTwo",
+                "$focus_override_down": "checkbox_control",
+                "$focus_id": "2users",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            },
+            {
+              "light_text_toggle_1@common_toggles.light_text_toggle": {
+                "size": [ "50%", "100%" ],
+                "layer": 2,
+                "$toggle_state_binding_name": "#player_count_10",
+                "$toggle_name": "#player_count_10",
+                "$button_text_binding_type": "none",
+                "$button_text": "realmsCreateScreen.usersTen",
+                "$focus_override_down": "checkbox_control",
+                "$focus_id": "10users",
+                "anchor_from": "top_right",
+                "anchor_to": "top_right"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "view_terms_button@common_buttons.light_text_button": {
+    "size": [ "50%", "100%" ],
+
+    "$button_text": "realmsCreateScreen.viewTermsAndConditions",
+    "$button_text_size": [ "100%", "default" ],
+    "$button_text_max_size": [ "100% - 10px", 20 ],
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle"
+  },
+
+  "terms_and_conditions_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "name_label@label": {
+          "offset": [ 2, 2 ],
+          "text": "realmsCreateScreen.termsAndConditionsHeader",
+          "layer": 2
+        }
+      },
+
+      {
+        "terms_string_panel": {
+          "type": "panel",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [ 0, 6 ],
+          "size": [ "100%", "100% - 12px" ],
+          "$pressed_button_name": "button.tos_hyperlink",
+          "variables": [
+            {
+              // Stop-gap measure until we can get hyperlinks to work from VR and FireTV
+              "requires": "($is_holographic or $fire_tv)",
+              "$pressed_button_name": "button.tos_popup"
+            },
+            {
+              "requires": "($is_ios or $apple_tv)",
+              "$pressed_button_name": "button.tos_ios_appletv"
+            }
+          ],
+          "controls": [
+            {
+              "banner_fill": {
+                "type": "image",
+                "layer": 2,
+                "texture": "textures/gui/newgui/Banners",
+                "uv": [ 0, 0 ],
+                "uv_size": [ 4, 4 ],
+                "nineslice_size": 1
+              }
+            },
+            {
+              "checkbox_control@common.checkbox": {
+                "size": [ 20, "100%" ],
+                "offset": [ 0, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "$toggle_name": "#agree_terms_and_conditions",
+                "focus_change_up": "2users",
+                "focus_identifier": "checkbox_control"
+              }
+            },
+            {
+              "i_agree_label": {
+                "type": "label",
+                "text": "realmsCreateScreen.termsAndConditionsAgree",
+                "offset": [ 22, 0 ],
+                "layer": 3,
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle"
+              }
+            },
+            {
+              "view_terms_button@view_terms_button": {
+                "offset": [ "50%", 0 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "confirmation_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "light_text_button@common_buttons.light_text_button": {
+          "$pressed_button_name": "button.create_realm",
+          "$button_text": "#confirmation_button_text",
+          "$button_text_binding_type": "global",
+          "size": [ "100%", "100%" ]
+        }
+      }
+    ]
+  },
+
+  "stack_item": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  "main_panel": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "100%" ],
+    "offset": [ 2, 0 ],
+    "controls": [
+      {
+        "name@stack_item": {
+          "size": [ "100% - 4px", 34 ],
+          "controls": [
+            {
+              "enter_name_panel@enter_name_panel": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": [ "100%", "100% - 4px" ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding_0": {
+          "type": "panel",
+          "size": [ 0, 2 ]
+        }
+      },
+      {
+        "duration@stack_item": {
+          "ignored": "$hide_duration",
+          "size": [ "100% - 4px", "40% - 19px" ],
+          "controls": [
+            {
+              "choose_duration_panel@choose_duration_panel": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": [ "100%", "100% - 4px" ],
+                "offset": [ 0, 4 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "tier@stack_item": {
+          "size": [ "100% - 4px", "20%" ],
+          "controls": [
+            {
+              "choose_tier_panel@choose_tier_panel": {
+                "ignored": "$hide_tier",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": [ "100%", "100% - 2px" ],
+                "offset": [ 0, 2 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "toc@stack_item": {
+          "size": [ "100%", "20%" ],
+          "controls": [
+            {
+              "terms_and_conditions_panel@terms_and_conditions_panel": {
+                "ignored": "$hide_terms_and_conditions",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "size": [ "100% - 4px", "100% - 4px" ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "confirm@stack_item": {
+          "size": [ "100% - 4px", "20% - 19px" ],
+          "controls": [
+            {
+              "confirmation_panel@confirmation_panel": {
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding_1": {
+          "type": "panel",
+          "size": [ 0, 2 ]
+        }
+      }
+    ]
+  },
+
+  //--------------------------------------------------------------------------------
+  // Screen
+  //--------------------------------------------------------------------------------
+
+  "content": {
+    "type": "panel",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": [ "100%", "100%" ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      { "main_panel@main_panel": { } },
+      {
+        "popup_dialog_factory": {
+          "type": "factory",
+          "control_ids": {
+            "agree_to_tos": "@realms_create.popup_dialog__agree_to_tos",
+            "purchase_failed": "@realms_create.popup_dialog__purchase_failed",
+            "purchase_in_progress": "@realms_create.popup_dialog__purchase_in_progress"
+          }
+        }
+      }
+    ]
+  },
+
+  "realms_create_screen@common.base_screen": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      }
+    ],
+    "$screen_content": "realms_create.realms_create_content",
+    "$default_text_color": [ 0.3, 0.3, 0.3 ]
+  },
+
+  "realms_create_content@common_dialogs.main_panel_no_buttons": {
+    "$text_name": "$title_text",
+    "$child_control": "realms_create.content",
+    "size": "$realms_create_screen_size"
+  }
+}

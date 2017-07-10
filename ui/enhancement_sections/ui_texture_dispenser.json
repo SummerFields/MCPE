@@ -1,0 +1,9 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "dispenser_enhanced",
+  
+  // Dispenser screen
+  "dialog_background_dispenser@container_enhanced.dialog_background_base": {
+    "texture": "textures/gui/container/dispenser"
+  }
+}

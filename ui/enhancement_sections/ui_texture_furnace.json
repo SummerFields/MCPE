@@ -1,0 +1,50 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "furnace_enhanced",
+
+  // Furnace screen
+  "dialog_background_furnace@container_enhanced.dialog_background_base": {
+    "texture": "textures/gui/container/furnace"
+  },
+
+  //---------------------------------------------------------------------------
+  // For furnace dialog screen
+  //---------------------------------------------------------------------------
+    
+  "furnace_arrow_full_image_pc": {
+    "type": "image",
+    "layer": 3,
+    "texture": "textures/gui/container/furnace",
+    "size": [ 24, 17 ],
+    "uv": [ 352, 28 ], //Modified for 512x GUI!
+    "uv_size": [ 48, 34 ], //Modified for 512x GUI!
+    "offset": [ 79, 34 ],
+    "nineslice_size": 0.0,
+    "clip_direction": "left",
+    "bindings": [
+      {
+        "binding_name": "#furnace_arrow_ratio",
+        "binding_name_override": "#clip_ratio",
+        "binding_condition": "always"
+      }
+    ]
+  },
+
+  "flame_full_image_pc": {
+    "type": "image",
+    "texture": "textures/gui/container/furnace",
+    "layer": 3,
+    "size": [ 14, 14 ],
+    "uv": [ 352, 0 ], //Modified for 512x GUI!
+    "uv_size": [ 28, 28 ], //Modified for 512x GUI!
+    "nineslice_size": 0.0,
+    "clip_direction": "down",
+    "bindings": [
+      {
+        "binding_name": "#furnace_flame_ratio",
+        "binding_name_override": "#clip_ratio",
+        "binding_condition": "always"
+      }
+    ]
+  }
+}

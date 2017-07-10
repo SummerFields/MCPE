@@ -1,0 +1,71 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "brewing_stand_enhanced",
+  
+  // Brewing Stand screen
+  "dialog_background_brewing@container_enhanced.dialog_background_base": {
+    "texture": "textures/gui/container/brewing_stand"
+  },
+
+  "bottle_empty_image_pc": {
+    "type": "image",
+    "texture": "textures/gui/container/brewing_stand",
+    "layer": 2,
+    "offset": [ 0, 0 ],
+    "size": [ 16, 16 ],
+    "uv": [ 394, 0 ], //Modified for 512x GUI!
+    "uv_size": [ 32, 32 ], //Modified for 512x GUI!
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "bindings": [
+      {
+        "binding_name": "#empty_bottle_image_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      }
+    ]
+  },
+
+  "bubbles_full_image_pc": {
+    "type": "image",
+    "texture": "textures/gui/container/brewing_stand",
+    "layer": 3,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 10, 8 ],
+    "size": [ 12, 29 ],
+    "uv": [ 370, 0 ], //Modified for 512x GUI!
+    "uv_size": [ 24, 58 ], //Modified for 512x GUI!
+    "nineslice_size": 0.0,
+    "clip_direction": "down",
+    "bindings": [
+      {
+        "binding_name": "#brewing_bubbles_ratio",
+        "binding_name_override": "#clip_ratio",
+        "binding_condition": "always"
+      }
+    ]
+  },
+
+  "brewing_arrow_full_image_pc": {
+    "type": "image",
+    "layer": 3,
+    "texture": "textures/gui/container/brewing_stand",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 42, 10 ],
+    "size": [ 9, 28 ],
+    "uv": [ 352, 0 ], //Modified for 512x GUI!
+    "uv_size": [ 18, 56 ], //Modified for 512x GUI!
+    "nineslice_size": 0.0,
+    "clip_direction": "up",
+    "bindings": [
+      {
+        "binding_name": "#brewing_arrow_ratio",
+        "binding_name_override": "#clip_ratio",
+        "binding_condition": "always"
+      }
+    ]
+  }
+}

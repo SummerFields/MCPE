@@ -1,0 +1,393 @@
+//File modified by @CrizArtEX. Don´t steal the code design ;)
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "anvil",
+
+  //---------------------------------------------------------------------------
+  // #region common items
+  //---------------------------------------------------------------------------
+
+  "generic_label": {
+    "type": "label",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "color": [ 0.25, 0.25, 0.25, 1.0 ],
+    "layer": 1
+  },
+
+  // #endregion
+
+  //---------------------------------------------------------------------------
+  // #region icon and text area (top quarter of screen)
+  //---------------------------------------------------------------------------
+
+  "anvil_icon": {
+    "type": "image",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "texture": "textures/gui/newgui/anvil-hammer",
+    "size": [ 30, 30 ],
+    "uv": [ 0, 0 ],
+    "uv_size": [ 15, 15 ],
+    "nineslice_size": 0.0,
+    "layer": 1
+  },
+
+  "title_label@anvil.generic_label": {
+    "offset": [ 0, 0 ], //Modified
+    "anchor_from": "top_left", // the parent //Modified
+    "anchor_to": "top_left", // this control //Modified
+    "text": "container.repair"
+  },
+
+  // panel to position the icon
+  "anvil_icon_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "anvil_icon@anvil.anvil_icon": { } }
+    ]
+  },
+
+  "text_edit_control@common.text_edit_box": {
+    "anchor_from": "top_left", // the parent
+    "anchor_to": "top_left", // this control
+    "property_bag": {
+      "#property_field": "#item_name"
+    },
+    "max_length": 30,
+    "$text_edit_binding_name": "#text_box_item_name",
+    "$text_edit_box_label_size": [ "default", 10 ]
+  },
+
+  // panel to position the top quarter of screen
+  "icon_and_text_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "40%" ],
+    "offset": [ 0, 0 ], //Modified
+    "controls": [
+      //{ "anvil_icon_panel@anvil.anvil_icon_panel": { } }, //Modified
+      { "anvil_title_and_text_panel@anvil.anvil_title_and_text_panel": { } }
+    ]
+  },
+
+  // panel for the title label
+  "title_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "20%" ],
+    "offset": [ 1, 0 ],
+    "controls": [
+      { "title_label@anvil.title_label": { } }
+    ]
+  },
+
+  // panel for the text edit box
+  "text_edit_panel": {
+    "type": "panel",
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "size": [ 110, 16 ], //Modified
+    "offset": [ 0, 0 ], //Modified
+    "controls": [
+      { "anvil_text_edit_control@common_enhanced.anvil_text_edit_control": { } } //Modified
+    ]
+  },
+
+  // panel to position title label and text edit control
+  "anvil_title_and_text_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ 110, 31 ], //Modified
+    "offset": [ 59, 5 ], //Modified
+    "controls": [
+      { "title_panel@anvil.title_panel": { } },
+      { "text_edit_panel@anvil.text_edit_panel": { } }
+    ]
+  },
+
+  //#endregion
+
+  //---------------------------------------------------------------------------
+  // #region recipe (input, material and results) area (2nd quarter of screen)
+  //---------------------------------------------------------------------------
+
+  "plus_sign_icon": {
+    "type": "image",
+    "texture": "textures/gui/newgui/anvil-plus",
+    "size": [ 13, 13 ],
+    "uv": [ 0, 0 ],
+    "uv_size": [ 13, 13 ]
+  },
+
+  "arrow_icon": {
+    "type": "image",
+    "texture": "textures/gui/newgui/anvil-arrow",
+    "size": [ 18, 12 ],
+    "uv": [ 0, 0 ],
+    "uv_size": [ 22, 15 ]
+  },
+
+  "cross_out_icon": {
+    "type": "image",
+    "texture": "textures/gui/newgui/anvil-crossout",
+    "size": [ 18, 12 ],
+    "uv": [ 0, 0 ],
+    "uv_size": [ 15, 15 ],
+    "bindings": [
+      {
+        "binding_name": "#cross_out_icon",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  //#endregion
+
+  "anvil_item_slot": {
+    "type": "panel",
+    "controls":[
+      {
+        "container_item_without_cell@common_enhanced.container_item_without_cell": { //Modified
+          "anchor_to": "center",
+          "anchor_from": "center"
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // #region Separated recipe grid, for each anvil slot. By @CrizArtEX
+  //---------------------------------------------------------------------------
+
+  "recipe_grid_input": {
+    "type": "grid",
+    "size": [ 18, 18 ], //Modified
+    "anchor_from": "top_left", //Modified
+    "anchor_to": "top_left", //Modified
+    "grid_dimensions": [ 1, 1 ], //Modified
+    "controls": [
+      {
+        "input_item_slot@anvil_item_slot": {
+          "grid_position": [ 0, 0 ],
+          "$item_collection_name": "anvil_input_items"
+        }
+      }
+    ]
+  },
+
+  "recipe_grid_material": {
+    "type": "grid",
+    "size": [ 18, 18 ], //Modified
+    "anchor_from": "top_left", //Modified
+    "anchor_to": "top_left", //Modified
+    "grid_dimensions": [ 1, 1 ], //Modified
+    "controls": [
+      {
+        "material_item_slot@anvil_item_slot": {
+          "grid_position": [ 0, 0 ], //Modified
+          "$item_collection_name": "anvil_material_items"
+        }
+      }
+    ]
+  },
+
+  "recipe_grid_yields": {
+    "type": "grid",
+    "size": [ 28, 21 ], //Modified
+    "anchor_from": "top_left", //Modified
+    "anchor_to": "top_left", //Modified
+    "grid_dimensions": [ 1, 1 ], //Modified
+    "controls": [
+      {
+        "yields": {
+          "type": "panel",
+          "grid_position": [ 0, 0 ], //Modified
+          "controls": [
+            {
+              "cross_out_icon_pc@anvil_enhanced.cross_out_icon_pc": {
+                "layer": 1
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "recipe_grid_result": {
+    "type": "grid",
+    "size": [ 18, 18 ], //Modified
+    "anchor_from": "top_left", //Modified
+    "anchor_to": "top_left", //Modified
+    "grid_dimensions": [ 1, 1 ],
+    "controls": [
+      {
+        "result_item_slot@anvil_item_slot": {
+          "grid_position": [ 0, 0 ], //Modified
+          "$item_collection_name": "anvil_result_items"
+        }
+      }
+    ]
+  },
+
+  // #endregion
+
+  "cost_label@anvil.generic_label": {
+    "shadow": false, //Modified
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "offset": [ 0, 1 ], //Modified
+    "color": "#ff00ff",
+    "text": "#text"
+  },
+
+  "recipe_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ 142, 30 ], //Modified
+    "offset": [ 26, 45 ], //Modified
+    "controls": [
+      //Added/Modified
+      {
+        "recipe_grid_input@anvil.recipe_grid_input": {
+        "offset": [ 0, 1 ]
+        }
+      },
+      //Added/Modified
+      {
+        "recipe_grid_material@anvil.recipe_grid_material": {
+          "offset": [ 49, 1 ]
+        }
+      },
+      //Added/Modified
+      {
+        "recipe_grid_yields@anvil.recipe_grid_yields": {
+          "offset": [ 73, 0 ]
+        }
+      },
+      //Added/Modified
+      {
+        "recipe_grid_result@anvil.recipe_grid_result": {
+          "offset": [ 107, 1 ]
+        }
+      },
+      {
+        "cost_label_0@anvil.cost_label": {
+          "layer": 2, //Added/Modified
+          "color": [ 1.0, 0.37, 0.37, 1.0 ],
+          "bindings": [
+            {
+              "binding_name": "#cost_text",
+              "binding_name_override": "#text"
+            },
+            {
+              "binding_name": "#cost_text_red",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "cost_label_1@anvil.cost_label": {
+          "layer": 2, //Added/Modified
+          "color": [ 0.5, 1.0, 0.125, 1.0 ],
+          "bindings": [
+            {
+              "binding_name": "#cost_text",
+              "binding_name_override": "#text"
+            },
+            {
+              "binding_name": "#cost_text_green",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "green_text_shadow_1@common_enhanced.green_text_shadow_1": { } },
+      { "green_text_shadow_2@common_enhanced.green_text_shadow_2": { } },
+      { "green_text_shadow_3@common_enhanced.green_text_shadow_3": { } },
+      { "red_text_shadow_1@common_enhanced.red_text_shadow_1": { } },
+      { "red_text_shadow_2@common_enhanced.red_text_shadow_2": { } },
+      { "red_text_shadow_3@common_enhanced.red_text_shadow_3": { } }
+    ]
+  },
+
+  // #endregion
+
+  //---------------------------------------------------------------------------
+  // #region screen
+  //---------------------------------------------------------------------------
+
+  "top_half_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "50%" ], //Modified
+    "offset": [ 0, 0 ], //Modified
+    "controls": [
+      { "icon_and_text_panel@anvil.icon_and_text_panel": { } },
+      { "recipe_panel@anvil.recipe_panel": { } }
+    ]
+  },
+
+  "anvil_panel": {
+    "type": "panel",
+    "$use_compact_close_button": true, //Added/Modified
+    "controls": [
+      { "container_gamepad_helpers@common.container_gamepad_helpers": { } },
+      {
+        "root_panel@common.root_panel": {
+          "layer": 1,
+          "controls": [
+            { "common_panel@common.common_panel": {
+                "$dialog_background": "anvil_enhanced.dialog_background_anvil" //Added/Modified
+              }
+            },
+            {
+              "anvil_screen_inventory": {
+                "type": "panel",
+                "layer": 5,
+                "controls": [
+                  { "top_half_panel@anvil.top_half_panel": { } },
+                  { "inventory_panel_bottom_half_without_cell@common_enhanced.inventory_panel_bottom_half_without_cell": { } }, //Modified
+                  { "hotbar_grid_without_cell@common_enhanced.hotbar_grid_template_without_cell": { } }, //Modified
+                  { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": { } }
+                ]
+              }
+            },
+            { "inventory_selected_icon_button@common.inventory_selected_icon_button": { } }
+          ]
+        }
+      }
+    ]
+  },
+  "anvil_screen@common.inventory_screen_common": {
+    "$close_on_player_hurt|default": false,
+    "close_on_player_hurt": "$close_on_player_hurt",
+    "variables": [
+      {
+        "requires": "$desktop_screen",
+        "$screen_content": "anvil.anvil_panel",
+        "$screen_bg_content": "common.screen_background"
+      },
+      {
+        "requires": "$pocket_screen",
+        "$screen_content": "anvil_pocket.anvil_panel",
+        "$close_on_player_hurt": true
+      }
+    ]
+  }
+}
+
+// #endregion

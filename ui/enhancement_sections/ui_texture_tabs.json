@@ -1,0 +1,270 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "tabs_enhanced",
+
+  //Creative tabs.
+  
+  "tab_image_pc": {
+    "type": "image",
+    "texture": "textures/gui/container/creative_inventory/tabs", //Modified
+    "layer": 2,
+    "uv": [ 0, 64 ], //Modified for 512x GUI!
+    "uv_size": [ 56, 64 ], //Modified for 512x GUI!
+    "size": [ 28, 32 ]
+  },
+
+  "tab_front@tabs_enhanced.tab_image_pc": { //Modified
+  },
+
+  "tab_back@tabs_enhanced.tab_image_pc": { //Modified
+    "uv": [ 0, 0 ]
+  },
+
+  "survival_tab_front": {
+    "type": "panel",
+    "anchor_from": "bottom_right", //Added/Modified
+    "anchor_to": "bottom_right", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_front@tabs_enhanced.tab_front": {
+          "uv": [ 280, 192 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "survival_icon@crafting.survival_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "survival_tab_back": {
+    "type": "panel",
+    "anchor_from": "bottom_right", //Added/Modified
+    "anchor_to": "bottom_right", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_back@tabs_enhanced.tab_back": {
+          "uv": [ 280, 128 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "survival_icon@crafting.survival_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "building_blocks_tab_front": {
+    "type": "panel",
+    "anchor_from": "top_left", //Added/Modified
+    "anchor_to": "top_left", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_front@tabs_enhanced.tab_front": {
+          "layer": 5
+        }
+      },
+      {
+        "building_blocks_icon@crafting.building_blocks_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "building_blocks_tab_back": {
+    "type": "panel",
+    "anchor_from": "top_left", //Added/Modified
+    "anchor_to": "top_left", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_back@tabs_enhanced.tab_back": {
+          "layer": 5
+        }
+      },
+      {
+        "building_blocks_icon@crafting.building_blocks_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "decorations_tab_front": {
+    "type": "panel",
+    "anchor_from": "top_left", //Added/Modified
+    "anchor_to": "top_left", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_front@tabs_enhanced.tab_front": {
+          "uv": [ 56, 64 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "decorations_icon@crafting.decorations_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "decorations_tab_back": {
+    "type": "panel",
+    "anchor_from": "top_left", //Added/Modified
+    "anchor_to": "top_left", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_back@tabs_enhanced.tab_back": {
+          "uv": [ 56, 0 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "decorations_icon@crafting.decorations_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "tools_tab_front": {
+    "type": "panel",
+    "anchor_from": "top_left", //Added/Modified
+    "anchor_to": "top_left", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_front@tabs_enhanced.tab_front": {
+          "uv": [ 112, 64 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "tools_icon@crafting.tools_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "tools_tab_back": {
+    "type": "panel",
+    "anchor_from": "top_left", //Added/Modified
+    "anchor_to": "top_left", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_back@tabs_enhanced.tab_back": {
+          "uv": [ 112, 0 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "tools_icon@crafting.tools_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "search_tab_front": {
+    "type": "panel",
+    "anchor_from": "top_right", //Added/Modified
+    "anchor_to": "top_right", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_front@tabs_enhanced.tab_front": {
+          "uv": [ 280, 64 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "search_icon@crafting.search_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "search_tab_back": {
+    "type": "panel",
+    "anchor_from": "top_right", //Added/Modified
+    "anchor_to": "top_right", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_back@tabs_enhanced.tab_back": {
+          "uv": [ 280, 0 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "search_icon@crafting.search_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "miscellaneous_tab_front": {
+    "type": "panel",
+    "anchor_from": "top_left", //Added/Modified
+    "anchor_to": "top_left", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_front@tabs_enhanced.tab_front": {
+          "uv": [ 168, 64 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "miscellaneous_icon@crafting.miscellaneous_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "miscellaneous_tab_back": {
+    "type": "panel",
+    "anchor_from": "top_left", //Added/Modified
+    "anchor_to": "top_left", //Added/Modified
+    "size": [ 28, 32 ], //Modified
+    "controls": [
+      {
+        "tab_back@tabs_enhanced.tab_back": {
+          "uv": [ 168, 0 ], //Modified for 512x GUI!
+          "layer": 5
+        }
+      },
+      {
+        "miscellaneous_icon@crafting.miscellaneous_icon": {
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  //Misc!!
+
+  "scroll_cell_image": {
+    "type": "image",
+    "texture": "textures/gui/container/creative_inventory/tabs",
+    "size": [ 18, 18 ],
+    "uv": [ 428, 0 ], //Modified for 512x GUI!
+    "uv_size": [ 36, 36 ] //Modified for 512x GUI!
+  }
+}

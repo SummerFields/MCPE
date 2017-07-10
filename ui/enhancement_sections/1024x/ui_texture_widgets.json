@@ -1,0 +1,147 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "widgets_enhanced",
+
+  //Hud!!
+
+  "hotbar_slot_selected_image": {
+    "type": "image",
+    "texture": "textures/gui/widgets",
+    "size": [ 24, 24 ],
+    "layer": 8,
+    "uv": [ 0, 88 ], //Modified for 1024x GUI!
+    "offset": [ 0, 0 ],
+    "uv_size": [ 96, 96 ], //Modified for 1024x GUI!
+    "bindings": [
+      {
+        "binding_name": "#slot_selected",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$hotbar_collection_name"
+      }
+    ]
+  },
+
+  "hotbar_image": {
+    "type": "image",
+    "texture": "textures/gui/widgets",
+    "offset": [ 0, 15.5 ],
+    "size": [ 182, 22 ],
+    "layer": 1,
+    "alpha": 1.0, //Modified
+    "uv": [ 0, 0 ],
+    "uv_size": [ 728, 88 ] //Modified for 1024x GUI!
+  },
+
+  "hotbar_offhand_slot_image": {
+    "type": "image",
+    "ignored": true, //Aún no he terminado el funcionamiento de este componente.
+    "texture": "textures/gui/widgets",
+    "size": [ 24, 24 ],
+    "layer": 8,
+    "uv": [ 96, 88 ], //Modified for 1024x GUI!
+    "offset": [ -108, 15.5 ],
+    "uv_size": [ 96, 96 ] //Modified for 1024x GUI!
+  },
+  
+  //Classic buttons!
+
+  "classic_button_state": {
+    "type": "image",
+    "texture": "textures/gui/widgets",
+    "layer": 2,
+    "uv_size": [ 800, 80 ], //Modified for 1024x GUI!
+    "$text_offset": [ 0, 0 ],
+    "controls": [
+      {
+        "button_label@common.new_button_label": {
+          "text": "$button_text",
+          "ignored": "$enabled_small_button",
+          "shadow": true,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "max_size": [ "100% - 4px", "100% - 4px" ],
+          "offset": "$text_offset"
+        }
+      }
+    ]
+  },
+
+  "classic_button_state_default@widgets_enhanced.classic_button_state": {
+    "$text_color": [ 0.87, 0.87, 0.87, 1 ],
+    "uv": [ 0, 264 ] //Modified for 1024x GUI!
+  },
+
+  "classic_button_state_hover@widgets_enhanced.classic_button_state": {
+    "$text_color": [ 1, 1, 0.62, 1 ],
+    "uv": [ 0, 344 ] //Modified for 1024x GUI!
+  },
+
+  "classic_button_state_pressed@widgets_enhanced.classic_button_state": {
+    "uv": [ 0, 344 ], //Modified for 1024x GUI!
+    "$text_color": [ 1, 1, 0.62, 1 ]
+  },
+
+  "classic_button_state_locked@widgets_enhanced.classic_button_state": {
+    "uv": [ 0, 784 ], //Modified for 1024x GUI!
+    "$text_color": [ 0.6275, 0.6275, 0.6275, 1 ]
+  },
+
+  //Classic Button.
+
+  "classic_button_small": {
+    "type": "panel",
+    "size": [ 98, 20 ],
+    "$texture": "",
+    "$uv_right": "",
+    "$enabled_small_button": true,
+    "controls": [
+      {
+        "left@$texture": {
+          "size": [ 49, 20 ],
+          "uv_size": [ 196, 80 ], //Modified for 1024x GUI!
+          "anchor_from": "top_left",
+          "anchor_to": "top_left"
+        }
+      },
+      {
+        "right@$texture": {
+          "uv": "$uv_right",
+          "size": [ 49, 20 ],
+          "uv_size": [ 196, 80 ], //Modified for 1024x GUI!
+          "anchor_from": "top_right",
+          "anchor_to": "top_right"
+        }
+      },
+      {
+        "button_label@common.new_button_label": {
+          "text": "$button_text",
+          "shadow": true,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "max_size": [ "100% - 4px", "100% - 4px" ],
+          "offset": "$text_offset"
+        }
+      }
+    ]
+  },
+
+  "classic_button_state_small_default@widgets_enhanced.classic_button_small": {
+    "$texture": "widgets_enhanced.classic_button_state_default",
+    "$text_color": [ 0.87, 0.87, 0.87, 1 ],
+    "$uv_right": [ 604, 264 ] //Modified for 1024x GUI!
+  },
+
+
+  "classic_button_state_small_hover@widgets_enhanced.classic_button_small": {
+    "$texture": "widgets_enhanced.classic_button_state_hover",
+    "$text_color": [ 1, 1, 0.62, 1 ],
+    "$uv_right": [ 604, 344 ] //Modified for 1024x GUI!
+  },
+
+  "classic_button_state_small_pressed@widgets_enhanced.classic_button_small": {
+    "$texture": "widgets_enhanced.classic_button_state_pressed",
+    "$text_color": [ 1, 1, 0.62, 1 ],
+    "$uv_right": [ 604, 344 ] //Modified for 1024x GUI!
+  }
+}

@@ -1,0 +1,137 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "common_custom_buttons",
+
+  //---------------------------------------------------------------------------
+  // Main
+  //---------------------------------------------------------------------------
+
+  "classic_legacy_button@common.button": {
+    "size": [ 200, 20 ],
+    "$enabled_small_button": false,
+    "controls": [
+      { "default@widgets_enhanced.classic_button_state_default": { } },
+      { "hover@widgets_enhanced.classic_button_state_hover": { } },
+      { "pressed@widgets_enhanced.classic_button_state_pressed": { } }
+    ]
+  },
+
+  "classic_legacy_button_small@common.button": {
+    "size": [ 200, 20 ],
+    "$enabled_small_button": true,
+    "controls": [
+      { "default@widgets_enhanced.classic_button_state_small_default": { } },
+      { "hover@widgets_enhanced.classic_button_state_small_hover": { } },
+      { "pressed@widgets_enhanced.classic_button_state_small_pressed": { } }
+    ]
+  },
+
+  "link_classic_button@settings_common.link_button": {
+    "size": [ 200, 20 ],
+    "controls": [
+      { "default@widgets_enhanced.classic_button_state_default": { } },
+      { "hover@widgets_enhanced.classic_button_state_hover": { } },
+      { "pressed@widgets_enhanced.classic_button_state_pressed": { } }
+    ]
+  },
+
+  //Custom settings tweak!
+
+  "custom_option_dropdown_control@settings_common.option_dropdown_control": {
+    "size": [ 100, 20 ]
+  },
+
+  "custom_option_dropdown@settings_common.option_generic": {
+    "$control_name": "common_custom_buttons.custom_option_dropdown_control"
+  },
+
+  "slider_option_generic": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$enabled|default": true,
+    "$option_enabled_binding_name|default": "",
+    "controls": [
+      { "slider_option_generic_core@common_custom_buttons.slider_option_generic_core": { } }
+    ]
+  },
+
+  //For settings section!!
+  "slider_option_generic_core@settings_common.option_generic_core": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", 20 ],
+    "controls": [
+      {
+        "center_line_layout": {
+          "type": "panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ "100%", 16 ],
+          "controls": [
+            {
+              "$control_name@$control_name": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            },
+            {
+              "option_label": {
+                "type": "label",
+                "layer": 32,
+                "size": "$label_size",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "text": "$option_label",
+                "shadow": true,
+                "visible": "$show_option_label",
+                "bindings": "$label_bindings",
+                "locked_alpha": 0.5
+              }
+            },
+            {
+              "slider_option_background": {
+                "type": "image",
+                "texture": "textures/gui/enhanced/slider_option_background",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": [ "100%", "100%" ],
+                "uv_size": [ "fill", "fill" ],
+                "nineslice_size": 8.0,
+                "tiled": true,
+                "layer": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "spacer": {
+          "type": "panel",
+          "size": [ 0, 4 ]
+        }
+      }
+    ]
+  },
+
+  "classic_slider_box_default": {
+    "type": "image",
+    "texture": "textures/gui/enhanced/slider_box_default",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "100%" ],
+    "uv_size": [ "fill", "fill" ],
+    "nineslice_size": [ 4, 8, 4, 8 ],
+    "tiled": true,
+    "layer": 1
+  },
+
+  "classic_slider_box_hover@common_custom_buttons.classic_slider_box_default": {
+    "texture": "textures/gui/enhanced/slider_box_hover"
+  },
+  
+  "classic_slider_box_locked@common_custom_buttons.classic_slider_box_default": {
+    "alpha": 0.5
+  }
+}

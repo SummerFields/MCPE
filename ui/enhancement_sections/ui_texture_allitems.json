@@ -1,0 +1,10 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "allitems_enhanced",
+
+  // Classic old styled PC creative UI before release 1.3!
+  "dialog_background_allitems@container_enhanced.dialog_background_base": {
+    "texture": "textures/gui/container/allitems",
+    "uv_size": [ 352, 416 ] //Modified for 512x GUI!
+  }
+}

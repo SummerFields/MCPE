@@ -1,0 +1,80 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "icons_enhanced",
+  
+  //---------------------------------------------------------------------------
+  // #region
+  // Added custom texture about icons.png use for xp bar. By @CrizArtEX
+  //---------------------------------------------------------------------------
+  //Note: Not recommended for little screen phones with high gui scaled.
+  //Added/Modified
+
+  "full_xp_bar": {
+    "type": "image",
+    "texture": "textures/gui/icons", //Modified
+    "uv": [ 0, 138 ], //Modified for 512x GUI!
+    "uv_size": [ 364, 10 ], //Modified for 512x GUI!
+    "nineslice_size": [ 0.0, 0.0, 0.0, 0.0 ], //Modfiied
+    "clip_direction": "left",
+    "clip_pixelperfect": true, //Modified
+    "bindings": [
+      {
+        "binding_name": "#exp_progress",
+        "binding_name_override": "#clip_ratio",
+        "binding_type": "global"
+      }
+    ]
+  },
+  
+  "empty_xp_bar": {
+    "type": "image",
+    "texture": "textures/gui/icons", //Modified
+    "uv": [ 0, 128 ], //Modified for 512x GUI!
+    "uv_size": [ 364, 10 ], //Modified for 512x GUI!
+    "nineslice_size": [ 0.0, 0.0, 0.0, 0.0 ] //Modified
+  },
+
+  // #endregion
+
+  //---------------------------------------------------------------------------
+  // #region
+  // Added custom texture about icons.png use  for Boss (Wither/Ender Dragon)
+  // health bar. By @CrizArtEX
+  //---------------------------------------------------------------------------
+  //Note: Not recommended for little screen phones with high gui scaled.
+  //Added/Modified
+
+  "empty_boss_bar": {
+    "type": "image",
+    "texture": "textures/gui/icons",
+    "uv": [ 0, 148 ], //Modified for 512x GUI!
+    "uv_size": [ 364, 10 ] //Modified for 512x GUI!
+  },
+
+  "filled_boss_bar": {
+    "type": "image",
+    "texture": "textures/gui/icons",
+    "uv": [ 0, 158 ], //Modified for 512x GUI!
+    "uv_size": [ 364, 10 ], //Modified for 512x GUI!
+    "nineslice_size": [ 0.0, 0.0, 4.0, 0.0 ],
+    "clip_direction": "left",
+    "bindings":
+    {
+      "binding_name": "#progress_percentage",
+      "binding_name_override": "#clip_ratio"
+    }
+  },
+
+  "filled_boss_bar_for_collections@filled_boss_bar": {
+    "clip_pixelperfect": true,
+    "bindings": [
+      {
+        "binding_name": "#progress_percentage",
+        "binding_name_override": "#clip_ratio",
+        "binding_type": "collection",
+        "binding_collection_name": "$progress_bar_collection"
+      }
+    ]
+  }
+  // #endregion
+}

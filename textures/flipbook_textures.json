@@ -1,0 +1,90 @@
+[
+  {
+    "flipbook_texture": "textures/blocks/fire_0",
+    "atlas_tile": "fire_0",
+    "frames": [ 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
+  },
+  {
+    "flipbook_texture": "textures/blocks/fire_1",
+    "atlas_tile": "fire_1",
+    "frames": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ]
+  },
+  {
+    "flipbook_texture": "textures/blocks/water_still",
+    "atlas_tile": "still_water",
+    "ticks_per_frame": 2
+  },
+  {
+    "flipbook_texture": "textures/blocks/water_flow",
+    "atlas_tile": "flowing_water",
+    "replicate": 2
+  },
+  {
+    "flipbook_texture": "textures/blocks/cauldron_water",
+    "atlas_tile": "cauldron_water",
+    "ticks_per_frame": 2
+  },
+  {
+    "flipbook_texture": "textures/blocks/lava_still",
+    "atlas_tile": "still_lava",
+    "ticks_per_frame": 16
+  },
+  {
+    "flipbook_texture": "textures/blocks/lava_flow",
+    "atlas_tile": "flowing_lava",
+    "ticks_per_frame": 10,
+    "replicate": 2
+  },
+  {
+    "flipbook_texture": "textures/blocks/prismarine_rough",
+    "atlas_tile": "prismarine",
+    "ticks_per_frame": 300,
+    "frames": [ 0, 1, 0, 2, 0, 3, 0, 1, 2, 1, 3, 1, 0, 2, 1, 2, 3, 2, 0, 3, 1, 3 ]
+  },
+  {
+    "flipbook_texture": "textures/blocks/portal",
+    "atlas_tile": "portal"
+  },
+  {
+    "flipbook_texture": "textures/blocks/sea_lantern",
+    "atlas_tile": "sea_lantern",
+    "ticks_per_frame": 5
+  },
+  {
+    "flipbook_texture": "textures/blocks/diamond_ore",
+    "atlas_tile": "diamond_ore",
+    "ticks_per_frame": 9
+  },
+  {
+    "flipbook_texture": "textures/blocks/furnace_front_on",
+    "atlas_tile": "furnace_front_on",
+    "ticks_per_frame": 132
+  },
+  {
+    "flipbook_texture": "textures/blocks/magma",
+    "atlas_tile": "magma",
+    "ticks_per_frame": 66
+  },
+  {
+    "flipbook_texture": "textures/blocks/redstone_lamp_on",
+    "atlas_tile": "redstone_lamp_on",
+    "ticks_per_frame": 35
+  },
+  {
+    "flipbook_texture": "textures/blocks/double_plant_grass_bottomdouble_plant_grass_bottom",
+    "atlas_tile": "double_plant_grass_bottom",
+    "ticks_per_frame": 3
+  },
+  {
+    "flipbook_texture": "textures/blocks/double_plant_grass_top",
+    "atlas_tile": "double_plant_grass_top",
+    "ticks_per_frame": 3
+  },
+  {
+    "flipbook_texture": "textures/blocks/rail_golden_powered",
+    "atlas_tile": "rail_golden_powered",
+    "ticks_per_frame": 34
+  }
+]
+
+

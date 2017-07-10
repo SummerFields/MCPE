@@ -1,0 +1,29 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "container_enhanced",
+
+  //---------------------------------------------------------------------------
+  // #region Basic container image.
+  //---------------------------------------------------------------------------
+
+  //just for fun, simply to make classic UI exactly like PC in different
+  //textures like dokucraft, paper cut out, or other different gui textures
+  //without need about "dialog_background_atlas.png".
+
+  //Enjoy :P.
+
+  // Base
+  "dialog_background_base": {
+    "type": "image",
+    "layer": 1,
+    "uv": [ 0, 0 ],
+    "uv_size": [ 352, 332 ] //Modified for 512x GUI!
+  },
+
+  // Creative screen
+  "dialog_creative_background_base@container_enhanced.dialog_background_base": {
+    "uv_size": [ 390, 272 ] //Modified for 512x GUI!
+  }
+
+  //#endregion
+}

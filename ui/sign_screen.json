@@ -1,0 +1,76 @@
+//File modified by @CrizArtEX. Don´t steal the code design ;)
+/********************************************************
+*   (c) Mojang. All rights reserved                     *
+*   (c) Microsoft. All rights reserved.                 *
+*********************************************************/
+
+{
+  "namespace": "sign",
+  //---------------------------------------------------------------------------
+  // CONTROLS
+  //---------------------------------------------------------------------------
+  "close_button_state_default@common.new_button_state": {
+    "texture": "textures/gui/spritesheet",
+    "uv": [ 60, 0 ],
+    "uv_size": [ 18, 18 ]
+  },
+  "close_button_state_pressed@common.new_button_state": {
+    "texture": "textures/gui/spritesheet",
+    "uv": [ 78, 0 ],
+    "uv_size": [ 18, 18 ]
+  },
+  "sign_background": {
+    "type": "image",
+    "size": [ 94, 47 ], //Added/Modified
+    "offset": [ 0, -1.5 ], //Added/Modified
+    "texture": "textures/gui/sign"
+  },
+
+  //---------------------------------------------------------------------------
+  // CONTENT
+  //---------------------------------------------------------------------------
+  //added_modified
+
+  "sign_close_button@common.button": {
+    "anchor_to": "top_right",
+    "anchor_from": "top_right",
+    "offset": [ 0, -1 ],
+    "size": [ 18, 18 ],
+    "$pressed_button_name": "button.menu_continue",
+    "controls": [
+      { "default@sign.close_button_state_default": { } },
+      { "hover@sign.close_button_state_default": { } },
+      { "pressed@sign.close_button_state_pressed": { } }
+    ]
+  },
+  "modified_sign_text_multiline@common.multiline_text_edit_box": {
+    "anchor_from": "top_middle", //Modified
+    "anchor_to": "top_middle", //Modified
+    "size": [ 92.5, 50 ], //Modified
+    "offset": [ 0, "25%" ], //Modified
+    "$text_alignment": "center",
+    "constrain_to_rect": true,
+    "selected": true,
+    "can_be_deselected": false,
+    "focus_enabled": true,
+    "$text_box_name": "#sign_text_multi",
+
+    "$text_background_default": "sign.sign_background",
+    "$text_background_hover": "sign.sign_background"
+  },
+  "modified_sign_screen_content": {
+    "type": "panel",
+    "controls": [
+      { "sign_message_label@common_enhanced.sign_message_label": { } },
+      { "text_edit@sign.modified_sign_text_multiline": { } },
+      { "classic_done_button@common_enhanced.classic_done_button": { } }
+    ]
+  },
+  //---------------------------------------------------------------------------
+  // SCREEN
+  //---------------------------------------------------------------------------
+  "sign_screen@common.base_screen": {
+    "$screen_content": "sign.modified_sign_screen_content",
+    "$screen_bg_content": "common.screen_background" //Added/Modified
+  }
+}

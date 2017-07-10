@@ -1,0 +1,25 @@
+//File made by @CrizArtEX. Don´t steal the mod code design ;)
+{
+  "namespace": "tab_search_enhanced",
+
+  "dialog_creative_search@container_enhanced.dialog_creative_background_base": {
+    "texture": "textures/gui/container/creative_inventory/tab_item_search"
+  },
+  
+  // For text edits!
+
+  "creative_edit_box_indent": {
+    "type": "image",
+    "nineslice_size": 0.0,
+    "texture": "textures/gui/container/creative_inventory/tab_item_search",
+    "alpha": "$alpha",
+    "uv": [ 0, 272 ], //Modified for 512x GUI!
+    "uv_size": [ 180, 24 ] //Modified for 512x GUI!
+  },
+
+  "creative_edit_box_indent_hover@tab_search_enhanced.creative_edit_box_indent": {
+    "uv": [ 0, 296 ], //Modified for 512x GUI!
+    "uv_size": [ 180, 24 ], //Modified for 512x GUI!
+    "alpha": 1.0
+  }
+}
