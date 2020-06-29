@@ -1,8 +1,0 @@
-//File made by @CrizArtEX. Don´t steal the mod code design ;)
-{
-  "namespace": "tab_inventory_enhanced",
-
-  "dialog_creative_inventory@container_enhanced.dialog_creative_background_base": {
-    "texture": "textures/gui/container/creative_inventory/tab_inventory"
-  }
-}

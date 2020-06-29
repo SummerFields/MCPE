@@ -1,8 +1,0 @@
-//File made by @CrizArtEX. Don´t steal the mod code design ;)
-{
-  "namespace": "shulker_box_enhanced",
-
-  "dialog_background_shulker_box@container_enhanced.dialog_background_base": {
-    "texture": "textures/gui/container/shulker_box"
-  }
-}

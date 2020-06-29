@@ -1,9 +1,0 @@
-//File made by @CrizArtEX. Don´t steal the mod code design ;)
-{
-  "namespace": "crafting_table_enhanced",
-  
-  // Crafting screen
-  "dialog_background_crafting@container_enhanced.dialog_background_base": {
-    "texture": "textures/gui/container/crafting_table"
-  }
-}
