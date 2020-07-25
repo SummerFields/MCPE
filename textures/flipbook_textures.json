@@ -38,7 +38,7 @@
   {
     "flipbook_texture": "textures/blocks/magma",
     "atlas_tile": "magma",
-    "ticks_per_frame": 10
+    "ticks_per_frame": 4
   },
   {
     "flipbook_texture": "textures/blocks/bubble_column_outer_a",
@@ -241,7 +241,7 @@
   {
     "flipbook_texture": "textures/blocks/prismarine_rough",
     "atlas_tile": "prismarine",
-    "ticks_per_frame": 300,
+    "ticks_per_frame": 100,
     "frames": [ 0, 1, 0, 2, 0, 3, 0, 1, 2, 1, 3, 1, 0, 2, 1, 2, 3, 2, 0, 3, 1, 3 ]
   },
   {
@@ -342,5 +342,105 @@
     "flipbook_texture": "textures/blocks/chain_command_block_conditional",
     "atlas_tile": "command_block_chain_conditional_side",
     "ticks_per_frame": 10
-  }
+  },
+  {
+	"flipbook_texture": "textures/blocks/blast_furnace_front_on",
+	"atlas_tile": "blast_furnace_front_on",
+	"ticks_per_frame": 10
+	},
+	{
+	"flipbook_texture": "textures/blocks/furnace_front_on",
+	"atlas_tile": "furnace_front_on"
+	},
+	{
+	"flipbook_texture": "textures/blocks/crying_obsidian",
+	"atlas_tile": "crying_obsidian",
+	"ticks_per_frame": 3
+	},
+	{
+	"flipbook_texture": "textures/blocks/diamond_ore",
+	"atlas_tile": "diamond_ore",
+	"ticks_per_frame": 3
+	},
+	{
+	"flipbook_texture": "textures/blocks/lantern",
+	"atlas_tile": "lantern",
+	"ticks_per_frame": 2
+	},
+	{
+	"flipbook_texture": "textures/blocks/redstone_lamp_on",
+	"atlas_tile": "redstone_lamp_on"
+	},
+	{
+	"flipbook_texture": "textures/blocks/soul_lantern",
+	"atlas_tile": "soul_lantern",
+	"ticks_per_frame": 8
+	},
+	{
+	"flipbook_texture": "textures/blocks/crimson_roots",
+	"atlas_tile": "crimson_roots",
+	"ticks_per_frame": 3,
+	"frames": [ 0, 1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+	},
+	{
+	"flipbook_texture": "textures/blocks/crimson_roots_pot",
+	"atlas_tile": "crimson_roots_pot",
+	"ticks_per_frame": 3,
+	"frames": [ 0, 1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+	},
+	{
+	"flipbook_texture": "textures/blocks/huge_fungus/crimson_log_side",
+	"atlas_tile": "crimson_log_side",
+	"ticks_per_frame": 10
+	},
+	{
+	"flipbook_texture": "textures/blocks/tallgrass",
+	"atlas_tile": "tallgrass",
+	"ticks_per_frame": 3,
+	"frames": [ 0, 1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+	},
+	{
+	"flipbook_texture": "textures/blocks/rail_golden_powered",
+	"atlas_tile": "rail_golden_powered"
+	},
+	{
+	"flipbook_texture": "textures/blocks/huge_fungus/warped_stem_side",
+	"atlas_tile": "warped_stem_side",
+	"ticks_per_frame": 10
+	},
+	{
+	"flipbook_texture": "textures/blocks/torch_on",
+	"atlas_tile": "torch_on",
+	"ticks_per_frame": 8
+	},
+	{
+	"flipbook_texture": "textures/blocks/soul_torch",
+	"atlas_tile": "soul_torch",
+	"ticks_per_frame": 3
+	},
+	{
+	"flipbook_texture": "textures/blocks/redstone_torch_on",
+	"atlas_tile": "redstone_torch_on"
+	},
+	{
+	"flipbook_texture": "textures/blocks/double_plant_grass_bottom",
+	"atlas_tile": "double_plant_bottom",
+	"atlas_index": 2,
+	"atlas_tile_variant": 2,
+	"ticks_per_frame": 3,
+	"frames": [ 0, 1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+	},
+	{
+	"flipbook_texture": "textures/blocks/double_plant_grass_top",
+	"atlas_tile": "double_plant_top",
+	"atlas_index": 2,
+	"atlas_tile_variant": 2,
+	"ticks_per_frame": 3,
+	"frames":  [ 0, 1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+	},
+	{
+	"flipbook_texture": "textures/items/blaze_rod",
+	"atlas_item": "blaze_rod",
+	"ticks_per_frame": 2
+	}
 ]

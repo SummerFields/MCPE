@@ -2025,5 +2025,11 @@
       "side": "composter_side"
     },
     "sound": "wood"
+  },
+  "crying_obsidian": {
+    "isotropic": false,
+    "textures": "crying_obsidian",
+    "brightness_gamma": 2.00,
+    "sound": "stone"
   }
 }
