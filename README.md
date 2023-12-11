@@ -1,4 +1,7 @@
-﻿[![SummerFields](http://summerfields.info/assets/signature/sign2.png)](http://summerfields.github.io/official/)
+This pack is no longer up to date and needs attention.
+--------
+ 
+ [![SummerFields](http://summerfields.info/assets/signature/sign2.png)](http://summerfields.github.io/official/)
  
  The summerfields pack is not frozen.
 Don't hesitate to request changes.
