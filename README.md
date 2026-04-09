@@ -16,6 +16,12 @@ Notes
 This is the Summerfields Resource Pack for Minecraft Bedrock edition (MCPE / Windows 10 edition)
 Packaged by (https://github.com/chengzzi89)
 
+* # New 2026 MCPE
+This is the Summerfields Resource Pack for Minecraft Bedrock edition (MCPE / Windows 10 edition)
+Packaged by (https://github.com/EscapeBacteia)
+Texture package download address:(https://github.com/EscapeBacteia/MCPE) or (https://wwr.lanzoui.com/b0139it9qh  提取码 : 74eu)
+
+
 Thanks to our contributors
 ------
 * [lipki] (https://github.com/lipki) for many things (see below).
