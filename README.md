@@ -19,7 +19,15 @@ Packaged by (https://github.com/chengzzi89)
 * # New 2026 MCPE
 This is the Summerfields Resource Pack for Minecraft Bedrock edition (MCPE / Windows 10 edition)
 Packaged by (https://github.com/EscapeBacteia)
-Texture package download address:(https://github.com/EscapeBacteia/MCPE) or (https://wwr.lanzoui.com/b0139it9qh  提取码 : 74eu)
+>中国玩家SummerFields基岩版下载地址:  
+https://wwr.lanzoui.com/b0139it9qh  提取码 : 74eu  
+
+>Download link for non-Chinese players for SummerFields Bedrock Edition:  
+ https://www.mediafire.com/folder/wg0ebi51gwmoq/SummerFields  
+   
+rule(规则)：  
+1. You must abide by the official rules of SummerFields  
+2.You can share others while adhering to the rules of 1  
 
 
 Thanks to our contributors
